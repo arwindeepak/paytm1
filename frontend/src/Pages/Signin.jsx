@@ -25,9 +25,9 @@ export const Signin = () => {
           }} placeholder="123456" label={"Password"} />
           <div className="pt-4">
             <Button onClick={() => {
-              axios.post("http://localhost:3000/api/v1/user/signin", {
+              axios.post(`${import.meta.env.VITE_URL}/api/v1/user/signin`, {
                 username: email,
-                password: password
+                password: password,
               });
               navigate("/dashboard")
             }} label={"Sign in"} />

@@ -34,14 +34,17 @@ export const Signup = () => {
           <div className="pt-4">
                       <Button onClick={() => {
                           async function getData() {
-                            const response=await  axios.post(
-                                "http://localhost:3000/api/v1/user/signup",
-                                {
-                                  username: email,
-                                  firstName: firstName,
-                                  password: Password,
-                                  lastName: lastName,
-                                }); 
+                            const response = await axios.post(
+                              `${
+                                import.meta.env.VITE_URL
+                              }/api/v1/user/signup`,
+                              {
+                                username: email,
+                                firstName: firstName,
+                                password: Password,
+                                lastName: lastName,
+                              }
+                            ); 
                                 localStorage.setItem(
                                   "token",
                                   response.data.token
